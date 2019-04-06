@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css?family=Aref+Ruqaa');
+/*--------------------main----------------*/
+:root{
+    --font-Aref-Reqaa:'Aref Ruqaa';
+}
+*{
+    font-family: var(--font-Aref-Reqaa);
+    direction: rtl;
+}
+body {
+    box-shadow: 0px 0px 10px 1px gray;
+    margin: 0 auto;
+    padding: 1px;
+}
+
+h1{
+    border-color: hsla(49, 31%, 47%, 0.781);
+    border-width: 5px;
+    border-style: ridge;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 300%;
+}
+/* ----------------------------------------------------*/
+
+/*---------------------Quran Container-----------------*/
+
+.book{
+    overflow-x:hidden; 
+    overflow-y:hidden; 
+    text-align: center;
+    font-size: 200%;
+    background-color:gray;
+}
+.page{
+    box-sizing: border-box;
+}
+.surahname{
+    border: 5px ridge  rgba(255, 174, 0, 0.404);
+
+}
+/* page header*/
+.pageheader{
+    margin: 5px;
+    border: 5px ridge  rgba(255, 174, 0, 0.404);
+    padding: 2px;
+}
+.pageheader>div{
+    display: inline;
+    margin-left:10%;
+    margin-right: 10%; 
+}
+.ayah{
+    color: gold !important;
+    display: inline-block;
+    font-family: initial !important;
+}
+.numberayahinsurah{
+    padding:10px;
+    border: 1px ridge 10% gold;
+}
+.madeby::after{
+    position: fixed;
+    font-family: sans-serif;
+    margin: 0 auto;
+    content: "تمت البرمجه و التصميم بواسطه : م/محمود شاهين mahmoudshahin1111@gmail.com";
+}
+.selector-block{
+    padding: 2px;
+    margin: 1em;
+    box-shadow: 0px 0px 10px 0px gray;
+    border-style: ridge;
+    border-width:2px;
+    border-color: black;
+    
+
+}
+/*------------------------------------------------------*/
+@keyframes bookOpening{
+    100%{
+       height: 300px; 
+    }
+}

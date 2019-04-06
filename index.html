@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/Quran/EQuran.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta name="author" content="Mahmoud Shahin"/>
+</head>
+
+<body>
+    <header>
+        <script src="EQuran.js"></script>
+    </header>
+    <h1>القران الكريم</h1>
+    <main>
+        <div class="selector_block">
+            <span>اختر السوره:</span>
+            <select class="_surahs_selectors" id="_s1" title="اختر السوره لعرضها اولا">
+            </select>
+            <span> :اختر أسم القارئ </span>
+            <select class="__audio_reader_selectors" id="_ars1" title="اختر اسم القارئ المفضل" onchange="onChangeReader('_ars1');">
+            </select>
+            <button type="button" onclick="showSurah('_s1')">عرض السوره</button>
+        </div>
+        <div>
+                <div id="book" class="book">
+                    </div>
+                    <div id="tbook" class="book">
+            
+                    </div>
+                    <div id="_ayahSoundBlock">
+                    </div>
+        </div>
+        
+        <div class="madeby">
+            
+        </div>
+    </main>
+</body>
+<html>
