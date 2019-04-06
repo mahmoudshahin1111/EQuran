@@ -224,7 +224,7 @@ function initContainerQuran(numberOfSurah, bookId = "book",withTafseerInTitle=fa
         ayah_element.innerText = ayah.text;
         ayah_element.tabIndex = 0;
         if(withTafseerInTitle){
-            //ayah_element.title= getAyahBySurahNumber(numberOfSurah,ayah.number,Tafseer).text;
+            ayah_element.title= getAyahBySurahNumber(numberOfSurah,i,Tafseer).text;
         }
         //create ayah numberinsurah block
         var numberInSurah_element = document.createElement("span");
@@ -318,10 +318,25 @@ function updatePage() {
         }
     }
 }
-function showSurah(selectorId) {
+function showSurah(selectorId,showtafseerId) {
     var select = document.getElementById(selectorId);
     var surah_number = select.options[select.selectedIndex].value;
+    let w = document.getElementById(showtafseerId).checked;
     //document.getElementById("book").className="book bookani";
     initContainerQuran(surah_number, "book",true,true, Quran);
-    initContainerQuran(surah_number,"tbook",false,false,Tafseer);
+    if(w){
+        document.getElementById("tbook").style.visibility='visible';
+        initContainerQuran(surah_number,"tbook",false,false,Tafseer);
+    }
+    else{
+        document.getElementById("tbook").style.visibility='hidden';
+    }
+    
+}
+function onShowTafseer()
+{
+   
+}
+function doani(){
+    document.body.className="body loadani";
 }

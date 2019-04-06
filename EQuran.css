@@ -8,33 +8,48 @@
     font-family: var(--font-Aref-Reqaa);
     direction: rtl;
 }
-body {
+.body {
     box-shadow: 0px 0px 10px 1px gray;
-    margin: 0 auto;
-    padding: 1px;
+    transform: scale(.1);
+    margin: 50px 50px 50px 50px;
+    padding: 50px;
+    background-image: url(/img/bb.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1{
-    border-color: hsla(49, 31%, 47%, 0.781);
-    border-width: 5px;
+    border-color: gray;
+    border-width: 10px;
     border-style: ridge;
     border-radius: 10px;
+    margin: 1em;
+    padding: .1em;
     text-align: center;
-    font-size: 300%;
+    font-size: 100px;
+    background-color: rgba(255, 255, 255, 0.438);
+
 }
 /* ----------------------------------------------------*/
 
 /*---------------------Quran Container-----------------*/
-#fullbook>div{
-    float: left;
-}
-.book{
-    overflow-x:hidden; 
-    overflow-y:hidden; 
+#fullbook{
+    overflow-x: hidden;
+    overflow-y: visible;
     text-align: center;
-    height: 200px;
+    max-height: 100%;
     background-color:gray;
-    
+    font-size: 30px;
+}
+#book{
+    width: 50%;
+    max-height: 150px;
+    float:right;
+}
+#tbook{
+    width: 50%;
+    max-height: 150px;
+    float:left;
 }
 .page{
     box-sizing: border-box;
@@ -65,7 +80,6 @@ h1{
 }
 .madeby{
     position: fixed;
-    margin-top: 90%;
 }
 .selector-block{
     padding: 2px;
@@ -75,6 +89,9 @@ h1{
     border-width:2px;
     border-color: black;
 }
+.general{
+    background-color: rgba(46, 48, 54, 0.678);
+}
 /*------------------------------------------------------*/
 .bookani{
     animation-name: bookOpening;
@@ -82,6 +99,17 @@ h1{
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+}
+.loadani{
+    animation-name: zoom;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+@keyframes zoom{
+    100%{
+        transform: scale(1);
+    }
 }
 @keyframes bookOpening{
     100%{
