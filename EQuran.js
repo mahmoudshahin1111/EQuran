@@ -21,7 +21,7 @@
 var Quran = {
     qdata: [],
     surahs: [],
-    url: "/Quran/data/quran-uthmani.json",
+    url: "/data/quran-uthmani.json",
     audio: "http://cdn.alquran.cloud/media/audio/ayah",
     readerList: [],
     currentReaderIndex: 113,
@@ -30,13 +30,13 @@ var Quran = {
 };
 var Editions = {
     editions: [],
-    url: "/Quran/data/edition.json",
+    url: "/data/edition.json",
     __init__: function () { getJson(this.url, 'edition'); }
 };
 var Tafseer = {
     tdata: [],
     surahs: [],
-    url: "/Quran/data/ar.muyassa.json",
+    url: "/data/ar.muyassa.json",
     __init__: function () { getJson(this.url, 'tafseer'); }
 }
 function Edition(identifier, language, name, englishName, format, type) {
@@ -321,6 +321,7 @@ function updatePage() {
 function showSurah(selectorId) {
     var select = document.getElementById(selectorId);
     var surah_number = select.options[select.selectedIndex].value;
+    //document.getElementById("book").className="book bookani";
     initContainerQuran(surah_number, "book",true,true, Quran);
     initContainerQuran(surah_number,"tbook",false,false,Tafseer);
 }

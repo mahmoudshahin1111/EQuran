@@ -25,13 +25,16 @@ h1{
 /* ----------------------------------------------------*/
 
 /*---------------------Quran Container-----------------*/
-
+#fullbook>div{
+    float: left;
+}
 .book{
     overflow-x:hidden; 
     overflow-y:hidden; 
     text-align: center;
-    font-size: 200%;
+    height: 200px;
     background-color:gray;
+    
 }
 .page{
     box-sizing: border-box;
@@ -60,11 +63,9 @@ h1{
     padding:10px;
     border: 1px ridge 10% gold;
 }
-.madeby::after{
+.madeby{
     position: fixed;
-    font-family: sans-serif;
-    margin: 0 auto;
-    content: "تمت البرمجه و التصميم بواسطه : م/محمود شاهين mahmoudshahin1111@gmail.com";
+    margin-top: 90%;
 }
 .selector-block{
     padding: 2px;
@@ -73,12 +74,17 @@ h1{
     border-style: ridge;
     border-width:2px;
     border-color: black;
-    
-
 }
 /*------------------------------------------------------*/
+.bookani{
+    animation-name: bookOpening;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
 @keyframes bookOpening{
     100%{
-       height: 300px; 
+       height: 200px;
     }
 }
