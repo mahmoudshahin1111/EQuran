@@ -35,63 +35,15 @@ h1{
 /*---------------------Quran Container-----------------*/
 #fullbook{
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: scroll;
     text-align: center;
-    max-height: 100%;
     background-color:gray;
-    font-size: 30px;
 }
-#book{
-    width: 50%;
-    max-height: 150px;
-    float:right;
-}
-#tbook{
-    width: 50%;
-    max-height: 150px;
-    float: left;
-}
-.page{
-    box-sizing: border-box;
-}
-.surahname{
-    border: 5px ridge  rgba(255, 174, 0, 0.404);
 
-}
-/* page header*/
-.pageheader{
-    margin: 5px;
-    border: 5px ridge  rgba(255, 174, 0, 0.404);
-    padding: 2px;
-}
-.pageheader>div{
-    display: inline;
-    margin-left:10%;
-    margin-right: 10%; 
-}
-.ayah{
-    color: gold !important;
-    display: inline-block;
-    font-family: initial !important;
-}
-.numberayahinsurah{
-    padding:10px;
-    border: 1px ridge 10% gold;
-}
 .madeby{
     position: fixed;
 }
-.selector-block{
-    padding: 2px;
-    margin: 1em;
-    box-shadow: 0px 0px 10px 0px gray;
-    border-style: ridge;
-    border-width:2px;
-    border-color: black;
-}
-.general{
-    background-color: rgba(46, 48, 54, 0.678);
-}
+
 /*------------------------------------------------------*/
 .bookani{
     animation-name: bookOpening;
