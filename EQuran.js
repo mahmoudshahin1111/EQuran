@@ -153,6 +153,63 @@ function getLengthOfAyahsBySurah(numberOfSurah) {
 /* -------------------------------------------------------------------------------------------------------------*/
 /* --------------------------------Initlizing quran block for reading-------------------------------------------------*/
 
+function initFullBook(e_bookId,surah_number){
+    let book=document.getElementById(e_bookId);
+
+    //load surah and get ayahs
+    let surah =getSurahByNumber(surah_number);
+    for(i=0;i<surah.ayahs.length;i++){
+        let ayah=getAyahBySurahNumber();
+    //header
+        let header_e=createheader(surah,ayah);
+        
+    //page
+        let page_e=createPage(surah,ayah);
+        
+    }
+    
+    
+}
+function createheader(surah,ayah){
+    let h_e=document.createElement("div"); //main head
+    //surah name
+    let sn_e=document.createElement('div');
+    sn_e.setAttribute('id',`#div-surah-number-${surah.number}`);
+    sn_e.innerText=surah.number;
+    h_e.appendChild(sn_e);
+    //other
+    let details_e=document.createElement("div");
+            //juz
+    let juz_e=document.createElement('div');
+    juz_e.setAttribute('id',`#div-ayah-juz-number-${surah.number}`);
+    sn_e.innerText=ayah.juz;
+            //hiezb
+
+            //number page
+}
+function createPage(surah,ayah){
+    //section
+            //ayah
+                //text
+                //ayah number
+            //tafseer
+                //text
+                //ayah number
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Update quran content with spacific surah
  * @param {*} numberOfSurah surah's number from 1 to 114
@@ -323,14 +380,19 @@ function showSurah(selectorId,showtafseerId) {
     var surah_number = select.options[select.selectedIndex].value;
     let w = document.getElementById(showtafseerId).checked;
     //document.getElementById("book").className="book bookani";
-    initContainerQuran(surah_number, "book",true,true, Quran);
+    
     if(w){
-        document.getElementById("tbook").style.visibility='visible';
+        var tbook=document.createElement("div");
+        tbook.id="tbook";
         initContainerQuran(surah_number,"tbook",false,false,Tafseer);
     }
     else{
-        document.getElementById("tbook").style.visibility='hidden';
+        document.getElementById("fullbook").removeChild(document.getElementById("tbook"));
+        var book = document.getElementById("book");
+        book.style.cssFloat='none';
+        book.style.textAlign='center';
     }
+    initContainerQuran(surah_number, "book",true,true, Quran);
     
 }
 function onShowTafseer()
