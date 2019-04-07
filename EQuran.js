@@ -153,50 +153,76 @@ function getLengthOfAyahsBySurah(numberOfSurah) {
 /* -------------------------------------------------------------------------------------------------------------*/
 /* --------------------------------Initlizing quran block for reading-------------------------------------------------*/
 
-function initFullBook(e_bookId,surah_number){
-    let book=document.getElementById(e_bookId);
+function initFullBook(e_bookId, surah_number) {
+    let book = document.getElementById(e_bookId);
 
     //load surah and get ayahs
-    let surah =getSurahByNumber(surah_number);
-    for(i=0;i<surah.ayahs.length;i++){
-        let ayah=getAyahBySurahNumber();
-    //header
-        let header_e=createheader(surah,ayah);
-        
-    //page
-        let page_e=createPage(surah,ayah);
-        
+    let surah = getSurahByNumber(surah_number);
+    for (i = 0; i < surah.ayahs.length; i++) {
+        let ayah = getAyahBySurahNumber();
+        if (ayah.page != brevayah.page || i == 0) {
+            //header
+            let header_e = createheader(surah, ayah);
+        }
+        //page
+        let page_e = createPage(surah, ayah);
     }
-    
-    
 }
-function createheader(surah,ayah){
-    let h_e=document.createElement("div"); //main head
+//create page header
+function createheader(surah, ayah) {
+    let h_e = document.createElement("div"); //main head
     //surah name
-    let sn_e=document.createElement('div');
-    sn_e.setAttribute('id',`#div-surah-number-${surah.number}`);
-    sn_e.innerText=surah.number;
-    h_e.appendChild(sn_e);
+    let sn_e = cE('div-surah-number');
+    sn_e.innerText = surah.number;
+    h_e.appendChild(sn_e); //append to header.
     //other
-    let details_e=document.createElement("div");
-            //juz
-    let juz_e=document.createElement('div');
-    juz_e.setAttribute('id',`#div-ayah-juz-number-${surah.number}`);
-    sn_e.innerText=ayah.juz;
-            //hiezb
+    let details_e = cE('div-header-details');
+    //juz
+    let juz_e = cE('div-header-details-ayah-juz-number');
+    juz_e.innerText = ayah.juz;
+    details_e.appendChild(juz_e);
+    //hiezb
+    let hiezb_e = cE('div-page-header-ayahhizbnumber');
+    hiezb_e.innerText = ayah.hizbQuarter;
+    details_e.appendChild(hiezb_e);
+    //number page
+    let page_num_e = cE('div-page-header-ayahnumber');
+    page_num_e.innerText = ayah.page;
+    details_e.appendChild(page_num_e);
 
-            //number page
+    h_e.appendChild(details_e);//append to header.
 }
-function createPage(surah,ayah){
+function createPage(surah, ayah, appendtafseer = false) {
     //section
-            //ayah
+    let e_section = cE('div-page-section');
+    //ayah
+    let e_ayah = cE('div-page-section-ayah');
+    //text
+    let e_ayah_text = cE('div-page-section-ayah-text');
+    e_ayah_text.innerText = ayah.text;
+    e_ayah.appendChild(e_ayah_text);
+    //ayah number
+    let e_ayah_numinsurah = cE('div-page-section-ayah-ayahnumberinsurah');
+    e_ayah_numinsurah.innerText = ayah.numberInSurah;
+    e_ayah.appendChild(e_ayah_numinsurah);
+
+    e_section.appendChild(e_ayah);
+
+    /*        //tafseer
                 //text
                 //ayah number
-            //tafseer
-                //text
-                //ayah number
+    if(appendtafseer){
+        getAyahBySurahNumber(surah.number,ayah.number,Tafseer);
+    } */
+    return e_section;
 }
 
+//create element fast with class attribute
+function cE(className, tag = 'div') {
+    let e = document.createElement(tag);
+    e.setAttribute('class', className);
+    return e;
+}
 
 
 
@@ -219,7 +245,7 @@ function createPage(surah,ayah){
  * @param {*} numberInSurah 
  * @param {*} ayahId id will be like that (id)_(ayah number) ->"a_1" that's mean ayah number 1
  */
-function initContainerQuran(numberOfSurah, bookId = "book",withTafseerInTitle=false,withAyahAudio=true, identifier = Quran, pageId = "p", ayahId = "a") {
+function initContainerQuran(numberOfSurah, bookId = "book", withTafseerInTitle = false, withAyahAudio = true, identifier = Quran, pageId = "p", ayahId = "a") {
     //default values.
     var ayahClassName = "ayah";
     var pageClassName = "page";
@@ -275,13 +301,13 @@ function initContainerQuran(numberOfSurah, bookId = "book",withTafseerInTitle=fa
         ayah_element.id = `${ayahId}_${ayah.number}`
         ayah_element.setAttribute("class", ayahClassName);
         ayah_element.value = ayah;
-        if(withAyahAudio){
+        if (withAyahAudio) {
             ayah_element.addEventListener("click", ayahInteractive);
         }
         ayah_element.innerText = ayah.text;
         ayah_element.tabIndex = 0;
-        if(withTafseerInTitle){
-            ayah_element.title= getAyahBySurahNumber(numberOfSurah,i,Tafseer).text;
+        if (withTafseerInTitle) {
+            ayah_element.title = getAyahBySurahNumber(numberOfSurah, i, Tafseer).text;
         }
         //create ayah numberinsurah block
         var numberInSurah_element = document.createElement("span");
@@ -306,7 +332,7 @@ function convertNumEtoA(e) {
 }
 
 /* ---------------------------------------Listening Option----------------------*/
-function ayahInteractive(){
+function ayahInteractive() {
     playSoundAyah(this);
     //var tafseerAyah=getAyahBySurahNumber(this.value.surah,this.value.numberInSurah,Tafseer);
 }
@@ -375,30 +401,29 @@ function updatePage() {
         }
     }
 }
-function showSurah(selectorId,showtafseerId) {
+function showSurah(selectorId, showtafseerId) {
     var select = document.getElementById(selectorId);
     var surah_number = select.options[select.selectedIndex].value;
     let w = document.getElementById(showtafseerId).checked;
     //document.getElementById("book").className="book bookani";
-    
-    if(w){
-        var tbook=document.createElement("div");
-        tbook.id="tbook";
-        initContainerQuran(surah_number,"tbook",false,false,Tafseer);
+
+    if (w) {
+        var tbook = document.createElement("div");
+        tbook.id = "tbook";
+        initContainerQuran(surah_number, "tbook", false, false, Tafseer);
     }
-    else{
+    else {
         document.getElementById("fullbook").removeChild(document.getElementById("tbook"));
         var book = document.getElementById("book");
-        book.style.cssFloat='none';
-        book.style.textAlign='center';
+        book.style.cssFloat = 'none';
+        book.style.textAlign = 'center';
     }
-    initContainerQuran(surah_number, "book",true,true, Quran);
-    
+    initContainerQuran(surah_number, "book", true, true, Quran);
+
 }
-function onShowTafseer()
-{
-   
+function onShowTafseer() {
+
 }
-function doani(){
-    document.body.className="body loadani";
+function doani() {
+    document.body.className = "body loadani";
 }
