@@ -1,3 +1,22 @@
+//data sample
+/*
+"surahs":[{"number":1,"name":"\u0633\u0648\u0631\u0629 \u0627\u0644\u0641\u0627\u062a\u062d\u0629","englishName":"Al-Faatiha","englishNameTranslation":"The Opening","revelationType":"Meccan","ayahs":[{"number":1,"audio":"http:\/\/cdn.alquran.cloud\/media\/audio\/ayah\/ar.alafasy\/1","text":"\ufeff\u0628\u0650\u0633\u0652\u0645\u0650 \u0627\u0644\u0644\u0651\u064e\u0647\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0652\u0645\u064e\u0670\u0646\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0650\u064a\u0645\u0650",
+"numberInSurah":1,"juz":1,"manzil":1,"page":1,"ruku":1,"hizbQuarter":1,"sajda":false}
+*/
+
+//data edition
+/*
+{
+    "identifier":"ar.muyassar",
+"language":"ar",
+"name":"\u062a\u0641\u0633\u064a\u0631 \u0627\u0644\u0645\u06cc\u0633\u0631",
+"englishName":"King Fahad Quran Complex",
+"format":"text",
+"type":"tafsir"}
+*/
+
+/* ------------------------------- Intilizing Script*/ /*Initlizing Script -----------------------------*/
+
 var Quran = {
   qdata: [],
   surahs: [],
@@ -463,6 +482,21 @@ function showSurah(selectorId, showtafseerId) {
   var surah_number = select.options[select.selectedIndex].value;
   var w = document.getElementById(showtafseerId).checked;
   initFullBook("book", surah_number);
+  //document.getElementById("book").className="book bookani";
+  /*
+    if (w) {
+        var tbook = document.createElement("div");
+        tbook.id = "tbook";
+        initContainerQuran(surah_number, "tbook", false, false, Tafseer);
+    }
+    else {
+        document.getElementById("fullbook").removeChild(document.getElementById("tbook"));
+        var book = document.getElementById("book");
+        book.style.cssFloat = 'none';
+        book.style.textAlign = 'center';
+    }
+    initContainerQuran(surah_number, "book", true, true, Quran);
+*/
 }
 function onShowTafseer() {}
 function doani() {
