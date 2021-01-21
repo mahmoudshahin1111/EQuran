@@ -1,70 +1,175 @@
-
 @import url('https://fonts.googleapis.com/css?family=Aref+Ruqaa');
+@import url('https://fonts.googleapis.com/css?family=Amiri');
 /*--------------------main----------------*/
-:root{
-    --font-Aref-Reqaa:'Aref Ruqaa';
+@media(max-width:1000px){
+    body{
+        transform: scale(1);
+        opacity: 1;
+        background-color=grey;
+    }
 }
 *{
+    --font-Aref-Reqaa: 'Amiri', serif;
     font-family: var(--font-Aref-Reqaa);
+    scroll-behavior: smooth;
     direction: rtl;
 }
-.body {
-    box-shadow: 0px 0px 10px 1px gray;
-    transform: scale(.1);
-    margin: 20px 20px 20px 20px;
-    padding: 50px;
-    background-image: url(img/bb.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
-h1{
+/* ----------------------------------------------------*/
+
+/*---------------------Reader surah tafser selecting-----------------*/
+body{
+    background-image: url(/img/bb.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transform: scale(0);
+    opacity: 0;
+}
+h1 {
     border-color: gray;
     border-width: 10px;
     border-style: ridge;
-    border-radius: 10px;
-    margin: 10 10 10 10;
+    border-radius: 15px;
     padding: .1em;
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
     background-color: rgba(255, 255, 255, 0.438);
-
 }
-/* ----------------------------------------------------*/
-
-/*---------------------Quran Container-----------------*/
-#fullbook{
+.fullbook-select {
+    overflow: hidden;
+    padding: 20px;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.438);
+    /* border: 1px; */
+}
+.fullbook-select.fullbook-select-surahselect * {
+    font-size: inherit;
+    display: inline-block;
+    margin-right: 20px;
+}
+.fullbook-select.fullbook-select-readerselect * {
+    display: inline-block;
+    font-size: inherit;
+    margin-right: 20px;
+}
+.fullbook-select.fullbook-select-showtafser * {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: inherit;
+}
+.fullbook-select#fullbook-select-show{
+    display: inline-block;
+    font-size: inherit;
+    padding: 1px;
+    margin-right: 20px;
+}
+/*-----------------------------------------------------------------------------*/
+/*------------------------------------Quran---------------------------------------*/
+#fullbook {
     overflow-x: hidden;
     overflow-y: scroll;
+    background-color: rgba(128, 128, 128, 0.473);
     text-align: center;
-    background-color:gray;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 6px black;
+    visibility: hidden;
+}
+.book-page {
+    color: black;
+    border: 10px ridge gold;
+    font-size: large;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.book-page-header {
+    display: block;
+    box-shadow: inset 0 0 20px 0px black;
+    margin: 1px 1px 10px 1px;
+}
+.book-page-header-details {
+    display: inline;
+}
+.header-details-surah-juz-number {
+    display: inline;
+}
+.page-header-surahhizbnumber {
+    display: inline;
+}
+.page-header-surahnumber {
+    display: inline;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.book-page-section-tafseer::before {
+    content: "التفسير : ";
+    color: brown;
+}
+.book-page-section-ayah-text {
+    display: inline-block;
+}
+.book-page-section-ayah-ayahnumberinsurah {
+    width: fit-content;
+    min-width: 20px;
+    /* height: 20px; */
+    display: inline-block;
+    /* border: 1px ridge black; */
+    border-radius: 100%;
+    background-color: palegoldenrod;
+    text-align: center;
+    margin-right: 5px;
+}
+.book-page-section {
+    background-color: #ffffff;
+    font-size: x-large;
+    line-height: 2;
+    border-width: thin;
+    border-color: gold;
+    border-style: dashed;
 }
 
-.madeby{
-    position: fixed;
-}
 
 /*------------------------------------------------------*/
-.bookani{
+
+/*------------------------------------footer--------------------------------*/
+.madeby {
+    position: relative;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.438);
+    padding: 1px;
+    font-family: 'Aref Ruqaa' !important;
+    }
+.img-icon{
+    width:20px;
+    height:20px;
+}
+/*-----------------------------------------------------------------*/
+.bookani {
     animation-name: bookOpening;
-    animation-duration: 2s;
+    animation-duration: 8s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-    animation-timing-function: linear;
 }
-.loadani{
+
+.loadani {
     animation-name: zoom;
     animation-duration: 1s;
-    animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
-@keyframes zoom{
-    100%{
+
+@keyframes zoom {
+    100% {
         transform: scale(1);
+        opacity: 1;
     }
 }
-@keyframes bookOpening{
-    100%{
-       height: 200px;
+
+@keyframes bookOpening {
+    100% {
+        height: fit-content;
+        opacity: 1;
     }
 }
+
+

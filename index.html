@@ -2,59 +2,55 @@
 <html>
 
 <head>
-    <base href="/Quran/">
-    <link href="EQuran.css" rel="stylesheet" />
+    <link href="/EQuran.css" rel="stylesheet" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta name="author" content="Made by : Mahmoud Shahin" />
+    <meta title="صفحه للقرا ن الكريم تتطوير mahamoud shahin" />
+    <meta name="discription" content="صفحه تحت التطوير خاصه بالقران الكريم" />
+    <meta name="keywords" content="Quran,القران الكريم,محمود شاهين,mahmoud shahin" />
+    <meta name='copyright' content="Made by : Mahmoud Shahin" />
 </head>
 
-<body class="body" onload="doani();">
-    <header>
-        <script src="EQuran.js"></script>
-    </header>
+<body>
     <h1>القران الكريم</h1>
-    <main>
-        <div class="selector_block">
-            <span>اختر السوره:</span>
-            <select class="_surahs_selectors" id="_s1" style="font-size:20px;" title="اختر السوره لعرضها اولا">
-            </select>
-            <span style="font-size:20px;">اختر أسم القارئ :</span>
-            <select class="__audio_reader_selectors" style="font-size:20px;" id="_ars1" title="اختر اسم القارئ المفضل"
-                onchange="onChangeReader('_ars1');">
-            </select>
-            <div style="display:inline-block;margin-right:10px; font-size: 20px;">
+    <div class="main">
+        <div class="fullbook-select">
+            <div class="fullbook-select-surahselect">
+                <span>اختر السوره:</span>
+                <select class="fullbook-select-surah" id="fullbook-select-surah"
+                    title="اختر السوره لعرضها اولا"></select>
+                </select>
+            </div>
+            <div class="fullbook-select-readerselect">
+                <span>اختر أسم القارئ :</span>
+                <select class="__audio_reader_selectors" id="_ars1" title="اختر اسم القارئ المفضل"
+                    onchange="onChangeReader('_ars1');">
+                </select>
+            </div>
+
+            <div class="fullbook-select-tafser">
                 <label for="show_tafseer_e">اظهار التفسير</label>
-                <input type="checkbox" onchange="onShowTafseer()" name="show_tafseer_e" id="show_tafseer_e" style="width:80px; height:20px;" />
+                <input type="checkbox" style="transform:scale(1.5);" name="fullbook-select-tafser-select"
+                    id="fullbook-select-tafser-select" />
             </div>
 
-            <button type="button" style="margin-right: 10px; width: 100px; height:30px; font-size: 20px;"
-                onclick="showSurah('_s1','show_tafseer_e')">عرض السوره</button>
+            <button type="button" id="fullbook-select-show"
+                onclick="showSurah('fullbook-select-surah','fullbook-select-tafser-select')">عرض السوره</button>
         </div>
-        <div id="fullbook">
-            <div id="book">
-            </div>
-            <div id="tbook">
+        <div id="fullbook" class="bookani">
 
-            </div>
         </div>
-        <div id="_ayahSoundBlock">
+        <div class="madeby">
+            <span>البرمجه و التصميم بواسطه : م/محمود شاهين</span>
+            <a href="https://mahmoudshahin1111.blogspot.com/"> <img class='img-icon' src="/img/blog.png"></a>
+            <a href="mailto:mahmoudshahin1111@gmail.com"><img class="img-icon" src="/img/gmail.png"></a>
+            <a href="https://www.facebook.com/MahmoudShahin1111"><img class='img-icon' src="/img/facebook.png"></a>
+            </img>
         </div>
-
-    </main>
-    <footer>
-            <div class="madeby" style="border:1px solid red; position: fixed; margin-left: 200px;">
-                    <span>تمت البرمجه و التصميم بواسطه : م/محمود شاهين</span>
-                    <a href="https://mahmoudshahin1111.blogspot.com/"> <img src="img/blog.png"
-                            style="width:30px; height:30px;"></a>
-                    <a href="mahmoudshahin1111@gmail.com"><img src="img/gmail.png" style="width:30px; height:30px;"></a>
-                    <a href="https://www.facebook.com/MahmoudShahin1111"><img src="img/facebook.png"
-                            style="width:30px; height:30px;"></a>
-                    </img>
-            
-                </div>
-    </footer>
+    </div>
+    <script src="quran-data.js"></script>
+    <script src="EQuran.js"></script>
 </body>
 
 
