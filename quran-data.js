@@ -118,7 +118,7 @@ var SurahNames= [
 var Quran = {
     qdata: [],
     surahs: [],
-    url: "/data/quran-uthmani.json",
+    url: "data/quran-uthmani.json",
     audio: "http://cdn.alquran.cloud/media/audio/ayah",
     readerList: [],
     currentReaderIndex: 113,
@@ -127,13 +127,13 @@ var Quran = {
 };
 var Editions = {
     editions: [],
-    url: "/data/edition.json",
+    url: "data/edition.json",
     __init__: function () { getJson(this.url, 'edition'); }
 };
 var Tafseer = {
     tdata: [],
     surahs: [],
-    url: "/data/ar.muyassa.json",
+    url: "data/ar.muyassa.json",
     __init__: function () { getJson(this.url, 'tafseer'); }
 }
 function getJson(url, typedata, finishedCallback = onSucessConnection, asyncCallback = onWaitingrespose, onFail = onFailCallback) {
