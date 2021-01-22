@@ -1,0 +1,7 @@
+{
+  "name": "EQuran",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
