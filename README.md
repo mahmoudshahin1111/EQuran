@@ -9,4 +9,4 @@ Features:
 
 
 thank you......
-link : https://mahmoudshahin1111.github.io/quran/
+link : https://mahmoudshahin1111.github.io/EQuran/
